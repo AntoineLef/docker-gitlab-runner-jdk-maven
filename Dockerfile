@@ -8,13 +8,13 @@ RUN apt-get update
 RUN \ 
   echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
-  apt-get install -y oracle-java8-installer && \
-  apt-get install openssh-server maven git
+  apt-get install -y oracle-java8-installer
 
   
+# Install openssh-server, maven and git.
+RUN apt-get install -y openssh-server maven git 
+RUN apt-get clean 
 
-# Install 
-RUN apt-get clean
 
 ADD assets/ /app/
 RUN chmod 755 /app/setup/install
