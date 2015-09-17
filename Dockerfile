@@ -2,13 +2,14 @@ FROM sameersbn/gitlab-ci-runner:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 # Install Java openssh-server, maven and git.
-RUN \
-  apt-get update -y && \
-  apt-get install python-software-properties -y && \
-  add-apt-repository ppa:openjdk-r/ppa && \
-  apt-get update && \
-  apt-get install openjdk-8-jdk && \
-  apt-get install -y openssh-server maven git
+RUN \ 
+  echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
+  echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \ 
+  add-apt-repository -y ppa:webupd8team/java && \ 
+  apt-get update && \ 
+  apt-get install -y oracle-java8-installer && \
+  apt-get install openssh-server maven git
+
   
 
 # Install 
