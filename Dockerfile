@@ -1,5 +1,6 @@
 FROM sameersbn/gitlab-ci-runner:latest
 
+ENV DEBIAN_FRONTEND noninteractive
 # Install Java openssh-server, maven and git.
 RUN \
   apt-get update -y && \
