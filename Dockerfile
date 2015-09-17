@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:webupd8team/java -y
 RUN apt-get update
-RUN \ W
+RUN \ 
   apt-get install -y oracle-java8-installer && \
   apt-get install openssh-server maven git
 
