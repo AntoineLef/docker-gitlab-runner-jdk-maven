@@ -1,6 +1,5 @@
 FROM sameersbn/gitlab-ci-runner:latest
 
-ENV DEBIAN_FRONTEND noninteractive
 # Install Java openssh-server, maven and git.
 RUN \ 
   echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
