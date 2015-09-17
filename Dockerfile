@@ -2,7 +2,9 @@ FROM sameersbn/gitlab-ci-runner:latest
 
 # Install Java openssh-server, maven and git.
 RUN \
-  sudo add-apt-repository ppa:openjdk-r/ppa && \
+  apt-get update -y && \
+  apt-get install python-software-properties -y && \
+  add-apt-repository ppa:openjdk-r/ppa && \
   apt-get update && \
   apt-get install openjdk-8-jdk && \
   apt-get install -y openssh-server maven git
