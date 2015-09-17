@@ -1,11 +1,11 @@
 FROM sameersbn/gitlab-ci-runner:latest
 
 # Install Java openssh-server, maven and git.
-RUN \ 
-  echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \ 
-  echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \ 
-  add-apt-repository -y ppa:webupd8team/java && \ 
-  apt-get update && \ 
+RUN apt-get update
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-get update
+RUN \ W
   apt-get install -y oracle-java8-installer && \
   apt-get install openssh-server maven git
 
