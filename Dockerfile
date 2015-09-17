@@ -6,6 +6,8 @@ RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:webupd8team/java -y
 RUN apt-get update
 RUN \ 
+  echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+  echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
   apt-get install -y oracle-java8-installer && \
   apt-get install openssh-server maven git
 
